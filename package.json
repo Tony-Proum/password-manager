@@ -1,0 +1,16 @@
+{
+  "name": "password-manager",
+  "version": "1.0.0",
+  "description": "Manage passwords",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node password-manager.js"
+  },
+  "author": "Tony Proum",
+  "license": "ISC",
+  "dependencies": {
+    "node-persist": "0.0.6",
+    "yargs": "^3.26.0"
+  }
+}
