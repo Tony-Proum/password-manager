@@ -96,13 +96,29 @@ function getAccount(accountName, masterPassword) {
 }
 var command = argv._[0];
 if(command === 'create'){
-    console.log(createAccount({
-        name: argv.name,
-        username: argv.username,
-        password: argv.password
-    },argv.masterPassword));
+    try {
+        var createdAccount = createAccount({
+            name: argv.name,
+            username: argv.username,
+            password: argv.password
+        },argv.masterPassword);
+        console.log('Account created');
+        console.log(createdAccount);
+    } catch (e) {
+        console.log('Unable to create an account');
+    }
 }
 
 if(command === 'get'){
-    console.log(getAccount(argv.name,argv.masterPassword));
+    try {
+    var fetchedAccount = getAccount(argv.name,argv.masterPassword);
+    if(typeof fetchedAccount == 'undefined'){
+        console.log('account not found');
+    } else {
+        console.log('Account found');
+        console.log(fetchedAccount);
+    }
+    } catch (e) {
+        console.log('Unable to fetch an account');
+    }
 }
